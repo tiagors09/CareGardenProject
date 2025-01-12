@@ -1,0 +1,14 @@
+@startuml Adicao_Gerenciamento_Plantas
+title Adição e Gerenciamento de Plantas
+
+actor Usuario as "Usuário"
+
+usecase "Adicionar Nova Planta" as UC1
+usecase "Visualizar Lista de Plantas" as UC2
+usecase "Adicionar Notas sobre a Planta" as UC3
+
+Usuario --> UC1 : Adiciona plantas com detalhes específicos
+Usuario --> UC2 : Visualiza lista ou galeria de plantas
+Usuario --> UC3 : Adiciona notas sobre estado da planta
+
+@enduml
