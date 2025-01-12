@@ -1,0 +1,7 @@
+{
+  "plantuml.diagramsRoot": "docs/diagramas/src",
+  "plantuml.exportOutDir": "docs/diagramas/out",
+  "plantuml.exportSubFolder": false,
+  "plantuml.render": "Local",
+  "plantuml.jar": "/plantuml.jar",
+}
