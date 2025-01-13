@@ -1,14 +1,23 @@
 @startuml Adicao_Gerenciamento_Plantas
 title Adição e Gerenciamento de Plantas
 
-actor Usuario as "Usuário"
+left to right direction
 
-usecase "Adicionar Nova Planta" as UC1
-usecase "Visualizar Lista de Plantas" as UC2
-usecase "Adicionar Notas sobre a Planta" as UC3
+actor Usuario as u
 
-Usuario --> UC1 : Adiciona plantas com detalhes específicos
-Usuario --> UC2 : Visualiza lista ou galeria de plantas
-Usuario --> UC3 : Adiciona notas sobre estado da planta
+usecase "Agendar regamento" as UC1
+usecase "Agendar podamento" as UC2
+usecase "Agendar adubação" as UC3
+usecase "Agendar troca de vaso ou replantio" as UC4
+usecase "Obter todos os agendamentos" as UC5
+usecase "Atualizar um agendamento específico" as UC6
+usecase "Remover um agendamento específico" as UC7
 
+u --> UC1
+u --> UC2
+u --> UC3
+u --> UC4
+u --> UC5
+u --> UC6
+u --> UC7
 @enduml
