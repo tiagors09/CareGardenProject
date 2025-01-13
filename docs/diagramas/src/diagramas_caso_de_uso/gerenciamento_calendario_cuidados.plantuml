@@ -1,12 +1,20 @@
 @startuml Gerenciamento_Calendario_Cuidados
 title Gerenciamento de Calendário de Cuidados
 
-actor Usuario as "Usuário"
+left to right direction
 
-usecase "Agendar Cuidados Específicos" as UC1
-usecase "Visualizar Cuidados Agendados" as UC2
+actor Usuario as u
 
-Usuario --> UC1 : Agenda cuidados para cada planta
-Usuario --> UC2 : Visualiza todos os cuidados em um calendário
+usecase "Adicionar uma nova planta" as UC1
+usecase "Listar todas as plantas" as UC2
+usecase "Obter detalhes de uma planta específica" as UC3
+usecase "Atualizar informações de uma planta" as UC4
+usecase "Remover uma planta" as UC5
+
+u --> UC1
+u --> UC2
+u --> UC3
+u --> UC4
+u --> UC5
 
 @enduml
