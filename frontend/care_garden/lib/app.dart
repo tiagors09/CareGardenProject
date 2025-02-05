@@ -1,3 +1,5 @@
+import 'package:care_garden/utils/rotas.dart';
+import 'package:care_garden/views/screens/agendamento_formulario.dart';
 import 'package:care_garden/views/screens/home.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +11,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CareGarden',
-      routes: {},
+      routes: {
+        Rotas.agendamentoFormulario: (ctx) => AgendamentoFormulario(),
+      },
       home: Home(),
     );
   }

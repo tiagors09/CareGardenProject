@@ -1,5 +1,5 @@
 import 'package:care_garden/views/widgets/agendamento/lista_agendamento.dart';
-import 'package:care_garden/views/widgets/calendario/calendario.dart';
+import 'package:care_garden/views/widgets/calendario.dart';
 import 'package:care_garden/views/widgets/planta/lista_plantas.dart';
 import 'package:flutter/material.dart';
 
