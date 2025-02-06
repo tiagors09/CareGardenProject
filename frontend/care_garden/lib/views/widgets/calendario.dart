@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Calendario extends StatelessWidget {
-  const Calendario({super.key});
+  final CalendarioControlador controlador;
+
+  const Calendario({
+    super.key,
+    required this.controlador,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final controlador = CalendarioControlador();
     return TableCalendar(
       focusedDay: DateTime.now(),
       firstDay: DateTime.utc(DateTime.now().year, 01, 01),

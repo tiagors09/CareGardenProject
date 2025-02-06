@@ -1,3 +1,5 @@
+import 'package:care_garden/controllers/calendario_controlador.dart';
+import 'package:care_garden/utils/rotas.dart';
 import 'package:care_garden/views/widgets/agendamento/lista_agendamento.dart';
 import 'package:care_garden/views/widgets/calendario.dart';
 import 'package:care_garden/views/widgets/planta/lista_plantas.dart';
@@ -19,9 +21,20 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void abrirFormularioPlantas() {
+    Navigator.pushNamed(context, Rotas.plantaFormulario);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Visibility(
+        visible: _mostrarListaPlantas,
+        child: FloatingActionButton(
+          onPressed: abrirFormularioPlantas,
+          child: Icon(Icons.add),
+        ),
+      ),
       appBar: AppBar(
         actions: [
           IconButton(
@@ -36,7 +49,9 @@ class _HomeState extends State<Home> {
       body: !_mostrarListaPlantas
           ? Column(
               children: [
-                Calendario(),
+                Calendario(
+                  controlador: CalendarioControlador(),
+                ),
                 ListaAgendamento(),
               ],
             )

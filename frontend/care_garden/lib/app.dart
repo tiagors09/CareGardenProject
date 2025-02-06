@@ -1,6 +1,9 @@
+import 'package:care_garden/controllers/agendamento_formulario_controlador.dart';
+import 'package:care_garden/controllers/planta_formulario_controlador.dart';
 import 'package:care_garden/utils/rotas.dart';
 import 'package:care_garden/views/screens/agendamento_formulario.dart';
 import 'package:care_garden/views/screens/home.dart';
+import 'package:care_garden/views/screens/planta_formulario.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -12,7 +15,12 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'CareGarden',
       routes: {
-        Rotas.agendamentoFormulario: (ctx) => AgendamentoFormulario(),
+        Rotas.agendamentoFormulario: (ctx) => AgendamentoFormulario(
+              controlador: AgendamentoFormularioControlador(),
+            ),
+        Rotas.plantaFormulario: (ctx) => PlantaFormulario(
+              controlador: PlantaFormularioControlador(),
+            ),
       },
       home: Home(),
     );
