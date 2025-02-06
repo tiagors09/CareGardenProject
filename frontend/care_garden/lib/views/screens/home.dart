@@ -86,7 +86,9 @@ class _HomeState extends State<Home> {
                 Calendario(
                   controlador: CalendarioControlador(),
                 ),
-                ListaAgendamento(),
+                ListaAgendamento(
+                  agendamentos: [],
+                ),
               ],
             )
           : ListaPlantas(
