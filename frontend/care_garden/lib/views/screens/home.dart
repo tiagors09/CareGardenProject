@@ -1,4 +1,5 @@
 import 'package:care_garden/controllers/calendario_controlador.dart';
+import 'package:care_garden/models/agendamento.dart';
 import 'package:care_garden/models/planta.dart';
 import 'package:care_garden/utils/rotas.dart';
 import 'package:care_garden/views/widgets/agendamento/lista_agendamento.dart';
@@ -15,6 +16,39 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool _mostrarListaPlantas = false;
+
+  List<Agendamento> mockAgendamentos = [
+    Agendamento(
+      id: 1,
+      plantaId: 101,
+      plantaNome: "Rosa",
+      data: DateTime.parse("2024-02-15T10:00:00"),
+    ),
+    Agendamento(
+      id: 2,
+      plantaId: 102,
+      plantaNome: "Orquídea",
+      data: DateTime.parse("2024-02-16T14:30:00"),
+    ),
+    Agendamento(
+      id: 3,
+      plantaId: 103,
+      plantaNome: "Girassol",
+      data: DateTime.parse("2024-02-17T09:00:00"),
+    ),
+    Agendamento(
+      id: 4,
+      plantaId: 104,
+      plantaNome: "Samambaia",
+      data: DateTime.parse("2024-02-18T16:45:00"),
+    ),
+    Agendamento(
+      id: 5,
+      plantaId: 105,
+      plantaNome: "Cacto",
+      data: DateTime.parse("2024-02-19T08:15:00"),
+    ),
+  ];
 
   List<Planta> mockPlantas = [
     Planta(
@@ -87,7 +121,7 @@ class _HomeState extends State<Home> {
                   controlador: CalendarioControlador(),
                 ),
                 ListaAgendamento(
-                  agendamentos: [],
+                  agendamentos: mockAgendamentos,
                 ),
               ],
             )
