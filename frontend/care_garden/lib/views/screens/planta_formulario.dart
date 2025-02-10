@@ -38,6 +38,10 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: ElevatedButton(
+        onPressed: () {},
+        child: Text('Salvar planta'),
+      ),
       appBar: AppBar(
         title: Text('Formulário Planta'),
       ),
@@ -53,6 +57,9 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
             ),
             TextFormField(
               initialValue: _formData['nome'] ?? '',
+              validator: (texto) => widget.controlador.validacaoNomePlanta(
+                texto,
+              ),
               decoration: InputDecoration(
                 label: Text('Nome da planta'),
               ),
