@@ -16,7 +16,12 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<PlantaProvider>(
-          create: (_) => PlantaProvider(),
+          create: (_) {
+            final plantaProvider = PlantaProvider();
+            plantaProvider.requisitarPlantas();
+
+            return plantaProvider;
+          },
         ),
       ],
       child: MaterialApp(

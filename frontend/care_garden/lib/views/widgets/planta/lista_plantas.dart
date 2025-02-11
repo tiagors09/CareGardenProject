@@ -15,34 +15,19 @@ class ListaPlantas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provedor = Provider.of<PlantaProvider>(context);
-    return FutureBuilder(
-      future: provedor.requisitarPlantas(),
-      builder: (ctx, snp) {
-        if (snp.hasData && snp.connectionState == ConnectionState.done) {
-          final plantas = provedor.plantas;
-          return Center(
-            child: plantas.isNotEmpty
-                ? ListView.builder(
-                    itemCount: plantas.length,
-                    itemBuilder: (ctx, i) {
-                      return PlantaListaItem(
-                        p: plantas[i],
-                        funcaoEdicaoPlanta: controlador.editarPlanta,
-                      );
-                    },
-                  )
-                : Text('Não há planatas cadastradas'),
-          );
-        }
-
-        if (snp.hasError && snp.connectionState == ConnectionState.done) {
-          return Center(
-            child: Text(snp.error.toString()),
-          );
-        }
-
-        return Center(child: CircularProgressIndicator());
-      },
+    final plantas = provedor.plantas;
+    return Center(
+      child: plantas.isNotEmpty
+          ? ListView.builder(
+              itemCount: plantas.length,
+              itemBuilder: (ctx, i) {
+                return PlantaListaItem(
+                  p: plantas[i],
+                  funcaoEdicaoPlanta: controlador.editarPlanta,
+                );
+              },
+            )
+          : Text('Não há planatas cadastradas'),
     );
   }
 }
