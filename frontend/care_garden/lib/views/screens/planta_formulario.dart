@@ -39,6 +39,7 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
     return Scaffold(
       bottomNavigationBar: ElevatedButton(
         onPressed: () => widget.controlador.salvarPlanta(
+          context,
           _formKey,
           _formData,
         ),
