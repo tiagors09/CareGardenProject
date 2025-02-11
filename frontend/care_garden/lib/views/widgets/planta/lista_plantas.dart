@@ -1,5 +1,4 @@
 import 'package:care_garden/controllers/lista_plantas_controlador.dart';
-import 'package:care_garden/models/planta.dart';
 import 'package:care_garden/providers/planta/planta_provider.dart';
 import 'package:care_garden/views/widgets/planta/planta_lista_item.dart';
 import 'package:flutter/material.dart';

@@ -22,7 +22,6 @@ public class Planta {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private String caminhoFoto;
   private String nome;
   private Date dataDeAquisicao;
 }
