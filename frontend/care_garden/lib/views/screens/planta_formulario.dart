@@ -29,7 +29,6 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
     if (_formData.isEmpty && planta != null) {
       planta as Planta;
       _formData['id'] = planta.id;
-      _formData['caminhoFoto'] = planta.caminhoFoto;
       _formData['nome'] = planta.nome;
       _formData['dataDeAquisicao'] = planta.dataDeAquisicao;
     }
@@ -39,7 +38,10 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: ElevatedButton(
-        onPressed: () {},
+        onPressed: () => widget.controlador.salvarPlanta(
+          _formKey,
+          _formData,
+        ),
         child: Text('Salvar planta'),
       ),
       appBar: AppBar(
@@ -50,11 +52,6 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
         child: ListView(
           padding: EdgeInsets.all(24),
           children: [
-            TextButton.icon(
-              icon: Icon(Icons.image),
-              onPressed: widget.controlador.selecionarImage,
-              label: Text('Escolher uma imagem'),
-            ),
             TextFormField(
               initialValue: _formData['nome'] ?? '',
               validator: (texto) => widget.controlador.validacaoNomePlanta(
@@ -72,8 +69,10 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    dataAquisicao != null
-                        ? DateFormat('dd MMM yyyy').format(dataAquisicao!)
+                    _formData['dataDeAquisicao'] != null
+                        ? DateFormat('dd MMM yyyy').format(
+                            _formData['dataDeAquisicao'],
+                          )
                         : 'Sem data definida',
                   ),
                   TextButton.icon(
@@ -83,6 +82,7 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
                             (novaData) => setState(
                               () {
                                 dataAquisicao = novaData;
+                                _formData['dataDeAquisicao'] = dataAquisicao;
                               },
                             ),
                           );

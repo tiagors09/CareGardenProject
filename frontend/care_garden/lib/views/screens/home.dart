@@ -1,4 +1,5 @@
 import 'package:care_garden/controllers/calendario_controlador.dart';
+import 'package:care_garden/controllers/lista_plantas_controlador.dart';
 import 'package:care_garden/models/agendamento.dart';
 import 'package:care_garden/models/planta.dart';
 import 'package:care_garden/utils/rotas.dart';
@@ -53,31 +54,26 @@ class _HomeState extends State<Home> {
   List<Planta> mockPlantas = [
     Planta(
       id: 1,
-      caminhoFoto: "https://example.com/images/suculenta.jpg",
       nome: "Suculenta",
       dataDeAquisicao: DateTime(2023, 5, 10),
     ),
     Planta(
       id: 2,
-      caminhoFoto: "https://example.com/images/orquidea.jpg",
       nome: "Orquídea",
       dataDeAquisicao: DateTime(2022, 8, 15),
     ),
     Planta(
       id: 3,
-      caminhoFoto: "https://example.com/images/espada_de_sao_jorge.jpg",
       nome: "Espada de São Jorge",
       dataDeAquisicao: DateTime(2021, 11, 3),
     ),
     Planta(
       id: 4,
-      caminhoFoto: "https://example.com/images/bonsai.jpg",
       nome: "Bonsai",
       dataDeAquisicao: DateTime(2020, 3, 27),
     ),
     Planta(
       id: 5,
-      caminhoFoto: "https://example.com/images/avenca.jpg",
       nome: "Avenca",
       dataDeAquisicao: DateTime(2023, 1, 12),
     ),
@@ -127,6 +123,7 @@ class _HomeState extends State<Home> {
             )
           : ListaPlantas(
               plantas: mockPlantas,
+              controlador: ListaPlantasControlador(),
             ),
     );
   }

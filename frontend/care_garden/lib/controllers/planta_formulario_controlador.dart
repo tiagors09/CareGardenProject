@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PlantaFormularioControlador {
-  void salvarPlanta() {}
+  void salvarPlanta(
+    GlobalKey<FormState> formKey,
+    Map<String, dynamic> formData,
+  ) {}
 
   String? validacaoNomePlanta(String? texto) {
     if (texto!.trim().isEmpty) {
@@ -22,6 +25,4 @@ class PlantaFormularioControlador {
       lastDate: DateTime.utc(DateTime.now().year, 12, 31),
     );
   }
-
-  void selecionarImage() {}
 }
