@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class PlantaProvider with ChangeNotifier {
-  final String _baseUrl = 'https://localhosta:8080/plantas';
+  final String _baseUrl = 'http://localhost:8080/plantas';
   List<Planta> _plantas = [];
 
   List<Planta> get plantas => _plantas;

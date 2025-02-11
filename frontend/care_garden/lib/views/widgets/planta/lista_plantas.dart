@@ -21,25 +21,27 @@ class ListaPlantas extends StatelessWidget {
         if (snp.hasData && snp.connectionState == ConnectionState.done) {
           final plantas = provedor.plantas;
           return Center(
-            child: ListView.builder(
-              itemCount: plantas.length,
-              itemBuilder: (ctx, i) {
-                return PlantaListaItem(
-                  p: plantas[i],
-                  funcaoEdicaoPlanta: controlador.editarPlanta,
-                );
-              },
-            ),
+            child: plantas.isNotEmpty
+                ? ListView.builder(
+                    itemCount: plantas.length,
+                    itemBuilder: (ctx, i) {
+                      return PlantaListaItem(
+                        p: plantas[i],
+                        funcaoEdicaoPlanta: controlador.editarPlanta,
+                      );
+                    },
+                  )
+                : Text('Não há planatas cadastradas'),
           );
         }
 
         if (snp.hasError && snp.connectionState == ConnectionState.done) {
           return Center(
-            child: Text('Falha ao obter plantas'),
+            child: Text(snp.error.toString()),
           );
         }
 
-        return CircularProgressIndicator();
+        return Center(child: CircularProgressIndicator());
       },
     );
   }
