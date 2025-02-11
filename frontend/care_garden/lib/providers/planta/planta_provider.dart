@@ -10,7 +10,7 @@ class PlantaProvider with ChangeNotifier {
 
   List<Planta> get plantas => _plantas;
 
-  Future<void> fetchPlants() async {
+  Future<void> requisitarPlantas() async {
     final response = await http.get(Uri.parse(_baseUrl));
     if (response.statusCode == 200) {
       final List<dynamic> data = json.decode(response.body);
@@ -19,7 +19,7 @@ class PlantaProvider with ChangeNotifier {
     }
   }
 
-  Future<void> addPlant(Planta plant) async {
+  Future<void> adicionarPlanta(Planta plant) async {
     final response = await http.post(
       Uri.parse(_baseUrl),
       headers: {'Content-Type': 'application/json'},
@@ -31,7 +31,7 @@ class PlantaProvider with ChangeNotifier {
     }
   }
 
-  Future<void> updatePlant(Planta plant) async {
+  Future<void> atualizarPlanta(Planta plant) async {
     final response = await http.put(
       Uri.parse('$_baseUrl/${plant.id}'),
       headers: {'Content-Type': 'application/json'},
@@ -46,7 +46,7 @@ class PlantaProvider with ChangeNotifier {
     }
   }
 
-  Future<void> deletePlant(int id) async {
+  Future<void> deletarPlanta(int id) async {
     final response = await http.delete(Uri.parse('$_baseUrl/$id'));
     if (response.statusCode == 200) {
       _plantas.removeWhere((plant) => plant.id == id);
