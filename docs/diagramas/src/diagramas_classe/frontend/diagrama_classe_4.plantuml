@@ -4,10 +4,10 @@ title Front-End Diagrama de Classe 4 - Visão
 package visao {
   class Visao<T> {
     -objetos: List<T>
-    +exibir(id: int): String
-    +listar(): String
-    +atualizar(id: int): String
-    +excluir(id: int): String
+    +exibir(id: int): void
+    +listar(): void
+    +atualizar(id: int): void
+    +excluir(id: int): void
   }
 }
 @enduml
