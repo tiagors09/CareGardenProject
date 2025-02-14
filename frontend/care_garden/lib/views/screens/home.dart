@@ -1,13 +1,15 @@
 import 'package:care_garden/controllers/calendario_controlador.dart';
+import 'package:care_garden/controllers/home_controlador.dart';
 import 'package:care_garden/controllers/lista_plantas_controlador.dart';
-import 'package:care_garden/utils/rotas.dart';
 import 'package:care_garden/views/widgets/agendamento/lista_agendamento.dart';
 import 'package:care_garden/views/widgets/calendario.dart';
 import 'package:care_garden/views/widgets/planta/lista_plantas.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final HomeControlador controlador;
+
+  const Home({super.key, required this.controlador});
 
   @override
   State<Home> createState() => _HomeState();
@@ -22,17 +24,13 @@ class _HomeState extends State<Home> {
     });
   }
 
-  void abrirFormularioPlantas() {
-    Navigator.pushNamed(context, Rotas.plantaFormulario);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: Visibility(
         visible: _mostrarListaPlantas,
         child: FloatingActionButton(
-          onPressed: abrirFormularioPlantas,
+          onPressed: () => widget.controlador.mostrarModalPlantas(context),
           child: Icon(Icons.add),
         ),
       ),

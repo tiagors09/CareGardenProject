@@ -22,11 +22,15 @@ class PlantaFormularioControlador {
       listen: false,
     );
 
+    late Function fn;
+
     if (formData['id'] == null) {
-      plantasProivder.adicionarPlanta(novaPlanta);
+      fn = plantasProivder.adicionarPlanta;
     } else {
-      plantasProivder.atualizarPlanta(novaPlanta);
+      fn = plantasProivder.atualizarPlanta;
     }
+
+    fn(novaPlanta);
 
     Navigator.of(ctx).pop();
   }

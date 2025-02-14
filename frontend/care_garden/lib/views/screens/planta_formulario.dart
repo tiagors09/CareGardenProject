@@ -24,7 +24,7 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final planta = ModalRoute.of(context)?.settings.arguments;
+    final planta = (ModalRoute.of(context)!.settings.arguments as List)[0];
 
     if (_formData.isEmpty && planta != null) {
       planta as Planta;

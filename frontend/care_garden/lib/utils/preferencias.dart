@@ -17,7 +17,7 @@ class Preferencias {
   }
 
   ThemeMode obterTema() {
-    late ThemeMode tema;
+    ThemeMode tema = ThemeMode.light;
 
     SharedPreferences.getInstance().then(
       (sp) {

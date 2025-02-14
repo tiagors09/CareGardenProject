@@ -1,4 +1,5 @@
 import 'package:care_garden/controllers/agendamento_formulario_controlador.dart';
+import 'package:care_garden/controllers/home_controlador.dart';
 import 'package:care_garden/controllers/planta_formulario_controlador.dart';
 import 'package:care_garden/providers/planta/planta_provider.dart';
 import 'package:care_garden/utils/preferencias.dart';
@@ -37,7 +38,9 @@ class App extends StatelessWidget {
                 controlador: PlantaFormularioControlador(),
               ),
         },
-        home: Home(),
+        home: Home(
+          controlador: HomeControlador(),
+        ),
       ),
     );
   }
