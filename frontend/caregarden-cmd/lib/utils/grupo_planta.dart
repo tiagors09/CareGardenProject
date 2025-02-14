@@ -1,10 +1,10 @@
-enum TipoPlanta {
+enum GrupoPlanta {
   pteridofita('pteridófita'),
   briofita('briófitas'),
   gimnosperma('gimnosperma'),
   angiosperma('angiosperma');
 
-  final String tipo;
+  final String nome;
 
-  const TipoPlanta(this.tipo);
+  const GrupoPlanta(this.nome);
 }

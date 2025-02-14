@@ -1,9 +1,8 @@
-import 'dart:io';
+import 'package:caregarden_cmd/app.dart';
 
 void main(
   List<String> arguments,
 ) {
-  print('#################');
-  print('#  CARE GARDEN  #');
-  print('#################');
+  final app = App();
+  app.rodar();
 }
