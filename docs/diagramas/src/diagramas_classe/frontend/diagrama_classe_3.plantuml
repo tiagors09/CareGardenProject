@@ -1,5 +1,5 @@
 @startuml Diagrama_Classe_3
-title Diagrama de Classe 3 - Controladores
+title Front-End Diagrama de Classe 3 - Controladores
 
 package controladores {
   interface Repositorio<T> {

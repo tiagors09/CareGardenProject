@@ -1,5 +1,5 @@
 @startuml Diagrama_Classe_2
-title Diagrama de Classe 2 - Utilitários
+title Front-End Diagrama de Classe 2 - Utilitários
 
 package utils {
   abstract class FabricaDePlanta {

@@ -1,5 +1,5 @@
 @startuml Diagrama_Classe_1
-title Diagrama de Classe 1 - Modelos
+title Front-End Diagrama de Classe 1 - Modelos
 
 package modelos {
   
