@@ -22,11 +22,7 @@ class Pteridofitas extends Planta {
       nome: json['nome'],
       dataDeAquisicao: DateTime.parse(json['dataDeAquisicao']),
       grupo: GrupoPlanta.values.byName(json['grupo']),
-      agendamentos: json['agendamentos'] != null
-          ? (json['agendamentos'] as List)
-              .map((e) => Agendamento.fromJson(e))
-              .toList()
-          : null,
+      agendamentos: json['agenfamentos'] ?? [],
     );
   }
 }

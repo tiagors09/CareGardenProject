@@ -7,6 +7,7 @@ import 'package:caregarden_cmd/utilitarios/grupo_planta.dart';
 
 abstract class FabricaDePlanta {
   static Planta fabricarPlanta(
+    int? id,
     String nome,
     DateTime dataDeAquisicao,
     GrupoPlanta grupo,
@@ -14,16 +15,32 @@ abstract class FabricaDePlanta {
     late Planta p;
     switch (grupo) {
       case GrupoPlanta.angiosperma:
-        p = Angiospermas(nome: nome, dataDeAquisicao: dataDeAquisicao);
+        p = Angiospermas(
+          id: id,
+          nome: nome,
+          dataDeAquisicao: dataDeAquisicao,
+        );
         break;
       case GrupoPlanta.briofita:
-        p = Briofitas(nome: nome, dataDeAquisicao: dataDeAquisicao);
+        p = Briofitas(
+          id: id,
+          nome: nome,
+          dataDeAquisicao: dataDeAquisicao,
+        );
         break;
       case GrupoPlanta.gimnosperma:
-        p = Gimnospermas(nome: nome, dataDeAquisicao: dataDeAquisicao);
+        p = Gimnospermas(
+          id: id,
+          nome: nome,
+          dataDeAquisicao: dataDeAquisicao,
+        );
         break;
       case GrupoPlanta.pteridofita:
-        p = Pteridofitas(nome: nome, dataDeAquisicao: dataDeAquisicao);
+        p = Pteridofitas(
+          id: id,
+          nome: nome,
+          dataDeAquisicao: dataDeAquisicao,
+        );
         break;
     }
 

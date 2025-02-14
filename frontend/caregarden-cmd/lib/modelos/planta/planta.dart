@@ -1,4 +1,3 @@
-import 'package:caregarden_cmd/modelos/agendamento/agendamento.dart';
 import 'package:caregarden_cmd/utilitarios/grupo_planta.dart';
 
 abstract class Planta {
@@ -6,7 +5,7 @@ abstract class Planta {
   final String nome;
   final DateTime dataDeAquisicao;
   final GrupoPlanta grupo;
-  final List<Agendamento>? agendamentos;
+  final List<int>? agendamentos;
 
   Planta({
     this.id,
@@ -24,7 +23,7 @@ abstract class Planta {
       'nome': nome,
       'dataDeAquisicao': dataDeAquisicao.toIso8601String(),
       'grupo': grupo.name,
-      'agendamentos': agendamentos?.map((e) => e.toJson()).toList(),
+      'agendamentos': agendamentos ?? [],
     };
   }
 }
