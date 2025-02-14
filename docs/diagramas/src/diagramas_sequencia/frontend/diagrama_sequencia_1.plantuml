@@ -13,7 +13,7 @@ foo2 -> foo3 : Obter agendamentos
 
 alt Se planta existe
 
-    foo3 -> foo4 : Criar agendamento(id, planta, data)
+    foo3 -> foo4 : Criar agendamento(id, planta, data, evento)
     foo4 -> foo5 : Buscar planta pelo id
     foo4 -> foo3 : Salvar agendamento
     foo3 -> foo2 : Atualizar lista de agendamentos
