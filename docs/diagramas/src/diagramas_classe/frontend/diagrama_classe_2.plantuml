@@ -13,6 +13,13 @@ package utils {
     angiosperma
   }
 
+  enum Evento {
+    regamento
+    podamento
+    adubacao
+    trocaVaso
+  }
+
   interface Iterador<T> {
     temProximo(): bool
     proximo(): T

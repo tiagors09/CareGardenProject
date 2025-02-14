@@ -4,6 +4,7 @@ title Front-End Diagrama de Classe 4 - Visão
 package visao {
   class Visao<T> {
     -agregador: Agregador
+    -repositorio: Repositorio
     +exibir(id: int): void
     +listar(): void
     +atualizar(id: int): void

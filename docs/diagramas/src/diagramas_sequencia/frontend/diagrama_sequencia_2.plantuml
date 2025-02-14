@@ -1,0 +1,25 @@
+@startuml Diagram_Sequencia_2
+
+title Excluir Planta
+
+actor foo1 as "Usuário"
+boundary foo2 as "Interface de Plantas"
+control foo3 as "Gerenciador de Plantas"
+entity foo4 as "Planta"
+
+foo1 -> foo2 : Solicitar exclusão da planta
+foo2 -> foo3 : Obter planta por id
+
+alt Se planta encontrada
+
+    foo3 -> foo4 : Remover planta
+    foo3 -> foo2 : Atualizar lista de plantas
+    foo2 -> foo1 : Exibir mensagem de sucesso
+
+else Se planta não encontrada
+
+    foo3 -> foo2 : Exibir erro
+    foo2 -> foo1 : Exibir mensagem de erro
+
+end
+@enduml

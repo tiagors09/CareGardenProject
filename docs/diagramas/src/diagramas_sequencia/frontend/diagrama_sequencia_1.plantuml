@@ -1,0 +1,30 @@
+@startuml Diagrama_Sequencia_1
+
+title Criar Agendamento
+
+actor foo1 as "Usuário"
+boundary foo2 as "Interface de Agendamento"
+control foo3 as "Gerenciador de Agendamentos"
+entity foo4 as "Agendamento"
+entity foo5 as "Planta"
+
+foo1 -> foo2 : Solicitar formulário de agendamento
+foo2 -> foo3 : Obter agendamentos
+
+alt Se planta existe
+
+    foo3 -> foo4 : Criar agendamento(id, planta, data)
+    foo4 -> foo5 : Buscar planta pelo id
+    foo4 -> foo3 : Salvar agendamento
+    foo3 -> foo2 : Atualizar lista de agendamentos
+    foo2 -> foo1 : Exibir mensagem de sucesso
+
+else Se planta não existe
+
+    foo3 -> foo2 : Exibir erro
+    foo2 -> foo1 : Exibir mensagem de erro
+
+end
+@enduml
+
+
