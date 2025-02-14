@@ -1,4 +1,3 @@
-import 'package:caregarden_cmd/modelos/agendamento/agendamento.dart';
 import 'package:caregarden_cmd/modelos/planta/planta.dart';
 import 'package:caregarden_cmd/utilitarios/grupo_planta.dart';
 
