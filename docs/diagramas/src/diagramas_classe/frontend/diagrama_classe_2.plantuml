@@ -19,14 +19,16 @@ package utils {
     atual(): T
   }
 
-  class MenuPlanta {
-    -plantas: List<Planta>
-    -posicao: int
+  class PlantaIterador {
+    -plantas: List<Plantas>
+    
+    PlantaIterador(plantas: List<Plantas>)
   }
 
-  class MenuAgendamentos {
-    -plantas: List<Planta>
-    -posicao: int
+  class AgendamentoIterador {
+    -agendamentos: List<Agendamento>
+    
+    AgendamentoIterador(agendamentos: List<Agendamento>)
   }
 
   Iterador <|.. MenuPlanta
