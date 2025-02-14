@@ -1,5 +1,6 @@
 import 'package:care_garden/controllers/planta_formulario_controlador.dart';
 import 'package:care_garden/models/planta.dart';
+import 'package:care_garden/utils/tipo_planta.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -25,12 +26,14 @@ class _PlantaFormularioState extends State<PlantaFormulario> {
     super.didChangeDependencies();
 
     final planta = (ModalRoute.of(context)!.settings.arguments as List)[0];
+    final tipoPlanta = (ModalRoute.of(context)!.settings.arguments as List)[1];
 
     if (_formData.isEmpty && planta != null) {
       planta as Planta;
       _formData['id'] = planta.id;
       _formData['nome'] = planta.nome;
       _formData['dataDeAquisicao'] = planta.dataDeAquisicao;
+      _formData['tipoPlanta'] = (tipoPlanta as TipoPlanta).tipo;
     }
   }
 

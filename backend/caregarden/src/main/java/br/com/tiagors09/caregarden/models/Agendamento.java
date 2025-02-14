@@ -18,11 +18,10 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Planta {
+public class Agendamento {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private String nome;
-  private Date dataDeAquisicao;
-  private String tipoPlanta;
+  private Long idPlanta;
+  private Date data;
 }

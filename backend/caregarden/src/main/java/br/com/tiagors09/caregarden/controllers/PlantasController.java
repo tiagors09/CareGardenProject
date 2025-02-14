@@ -33,12 +33,15 @@ public class PlantasController {
 
   // 3. Adicionar uma nova planta (POST /plantas)
   @PostMapping
-  public ResponseEntity<Planta> adicionarPlanta(@RequestParam("nome") String nome,
-      @RequestParam("dataDeAquisicao") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dataDeAquisicao) {
+  public ResponseEntity<Planta> adicionarPlanta(
+      @RequestParam("nome") String nome,
+      @RequestParam("dataDeAquisicao") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dataDeAquisicao,
+      @RequestParam("tipoPlanta") String tipoPlanta) {
 
     Planta planta = new Planta();
     planta.setNome(nome);
     planta.setDataDeAquisicao(dataDeAquisicao);
+    planta.setTipoPlanta(tipoPlanta);
 
     Planta plantaSalva = repository.save(planta);
     return ResponseEntity.ok(plantaSalva);
@@ -48,7 +51,8 @@ public class PlantasController {
   @PutMapping("/{id}")
   public ResponseEntity<Planta> atualizarPlanta(@PathVariable Long id,
       @RequestParam(required = false) String nome,
-      @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dataDeAquisicao) {
+      @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dataDeAquisicao,
+      @RequestParam(required = false) String tipoPlanta) {
 
     return repository.findById(id)
         .map(planta -> {
@@ -58,6 +62,11 @@ public class PlantasController {
           if (dataDeAquisicao != null) {
             planta.setDataDeAquisicao(dataDeAquisicao);
           }
+
+          if (tipoPlanta != null) {
+            planta.setTipoPlanta(tipoPlanta);
+          }
+
           Planta plantaAtualizada = repository.save(planta);
           return ResponseEntity.ok(plantaAtualizada);
         })

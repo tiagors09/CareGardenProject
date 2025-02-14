@@ -17,7 +17,9 @@ class Planta {
       : id = json['id'],
         nome = json['nome'],
         dataDeAquisicao = DateTime.parse(json['dataDeAquisicao']),
-        tipoPlanta = json['tipoPlanta'];
+        tipoPlanta = TipoPlanta.values.firstWhere(
+          (valor) => valor == json['tipoPlanta'],
+        );
 
   Map<String, dynamic> toJson() {
     return {
