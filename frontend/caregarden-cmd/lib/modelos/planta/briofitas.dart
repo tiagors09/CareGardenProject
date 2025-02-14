@@ -1,5 +1,5 @@
 import 'package:caregarden_cmd/modelos/planta/planta.dart';
-import 'package:caregarden_cmd/utilitarios/grupo_planta.dart';
+import 'package:caregarden_cmd/utilitarios/enums/grupo_planta.dart';
 
 class Briofitas extends Planta {
   Briofitas({

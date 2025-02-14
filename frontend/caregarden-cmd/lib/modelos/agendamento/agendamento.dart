@@ -1,4 +1,4 @@
-import 'package:caregarden_cmd/utilitarios/evento.dart';
+import 'package:caregarden_cmd/utilitarios/enums/evento.dart';
 
 abstract class Agendamento {
   final int? id;

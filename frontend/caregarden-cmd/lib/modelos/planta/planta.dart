@@ -1,4 +1,4 @@
-import 'package:caregarden_cmd/utilitarios/grupo_planta.dart';
+import 'package:caregarden_cmd/utilitarios/enums/grupo_planta.dart';
 
 abstract class Planta {
   final int? id;

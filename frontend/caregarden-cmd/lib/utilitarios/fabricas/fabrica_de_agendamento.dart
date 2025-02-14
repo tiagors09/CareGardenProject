@@ -4,7 +4,7 @@ import 'package:caregarden_cmd/modelos/agendamento/podamento.dart';
 import 'package:caregarden_cmd/modelos/agendamento/regamento.dart';
 import 'package:caregarden_cmd/modelos/agendamento/replantio.dart';
 import 'package:caregarden_cmd/modelos/agendamento/troca_de_vaso.dart';
-import 'package:caregarden_cmd/utilitarios/evento.dart';
+import 'package:caregarden_cmd/utilitarios/enums/evento.dart';
 
 abstract class FabricaDeAgendamento {
   static Agendamento fabricarPlanta(
