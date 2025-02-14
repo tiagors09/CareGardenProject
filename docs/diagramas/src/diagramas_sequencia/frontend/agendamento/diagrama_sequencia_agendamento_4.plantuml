@@ -1,0 +1,25 @@
+@startuml Diagrama_Sequencia_Agendamento_4
+title Visualizar Agendamento
+
+actor foo1 as "Usuário"
+boundary foo2 as "Interface de Agendamento"
+control foo3 as "Gerenciador de Agendamentos"
+entity foo4 as "Agendamento"
+
+foo1 -> foo2 : Solicitar visualização de agendamento
+foo2 -> foo3 : Obter agendamento por id
+
+alt Se agendamento encontrado
+
+    foo3 -> foo4 : Buscar agendamento
+    foo4 -> foo3 : Retornar dados do agendamento
+    foo3 -> foo2 : Exibir agendamento
+    foo2 -> foo1 : Exibir detalhes do agendamento
+
+else Se agendamento não encontrado
+
+    foo3 -> foo2 : Exibir erro
+    foo2 -> foo1 : Exibir mensagem de erro
+
+end
+@enduml

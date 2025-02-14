@@ -1,0 +1,25 @@
+@startuml Diagrama_Sequencia_Planta_2
+title Criar Planta
+
+actor foo1 as "Usuário"
+boundary foo2 as "Interface de Planta"
+control foo3 as "Gerenciador de Plantas"
+entity foo4 as "Planta"
+
+foo1 -> foo2 : Solicitar cadastro de planta
+foo2 -> foo3 : Enviar dados de planta
+
+alt Se dados válidos
+
+    foo3 -> foo4 : Criar nova planta
+    foo4 -> foo3 : Salvar planta
+    foo3 -> foo2 : Atualizar lista de plantas
+    foo2 -> foo1 : Planta criada com sucesso
+
+else Se dados inválidos
+
+    foo3 -> foo2 : Exibir erro
+    foo2 -> foo1 : Exibir mensagem de erro
+
+end
+@enduml
