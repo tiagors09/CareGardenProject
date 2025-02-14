@@ -10,15 +10,15 @@ package controladores {
   }
 
   class GerenciadorDePlantas << (S,#FF7700) Singleton >> {
-    -plantas: List<Planta>
-    +obterPlantas(): List<Planta>
+    -plantas: Plantas
+    +obterPlantas(): Plantas
     +adicionarPlanta(planta: Planta): bool
     +removerPlanta(id: int): bool
   }
 
   class GerenciadorDeAgendamentos << (S,#FF7700) Singleton >> {
-    -agendamentos: List<Agendamento>
-    +obterAgendamentos(): List<Agendamento>
+    -agendamentos: Agendamentos
+    +obterAgendamentos(): Agendamentos
     +adicionarAgendamento(agendamento: Agendamento): bool
     +removerAgendamento(id: int): bool
   }

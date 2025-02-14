@@ -21,17 +21,36 @@ package utils {
 
   class PlantaIterador {
     -plantas: List<Plantas>
-    
+    -indiceAtual: int
     PlantaIterador(plantas: List<Plantas>)
   }
 
   class AgendamentoIterador {
     -agendamentos: List<Agendamento>
-    
+    -indiceAtual: int
     AgendamentoIterador(agendamentos: List<Agendamento>)
+  }
+
+  interface Agregador<T> {
+    +geraIterador(): T
+  }
+
+  class Plantas {
+    -plantas: List<Plantas>
+    -indiceAtual: int
+    -plantaIterador: PlantaIterador
+  }
+
+  class Agendamentos {
+    -agendamentos: List<Plantas>
+    -indiceAtual: int
+    -agendamentosIterador: AgendamentoIterador
   }
 
   Iterador <|.. PlantaIterador
   Iterador <|.. AgendamentoIterador
+
+  Agregador <|.. Plantas
+  Agregador <|.. Agendamentos
 }
 @enduml
