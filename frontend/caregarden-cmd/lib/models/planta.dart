@@ -1,4 +1,4 @@
-import 'package:care_garden/utils/tipo_planta.dart';
+import 'package:caregarden_cmd/utils/tipo_planta.dart';
 
 class Planta {
   final int? id;
@@ -17,9 +17,7 @@ class Planta {
       : id = json['id'],
         nome = json['nome'],
         dataDeAquisicao = DateTime.parse(json['dataDeAquisicao']),
-        tipoPlanta = TipoPlanta.values.firstWhere(
-          (valor) => valor == json['tipoPlanta'],
-        );
+        tipoPlanta = TipoPlanta.values.byName(json['tipoPlanta']);
 
   Map<String, dynamic> toJson() {
     return {

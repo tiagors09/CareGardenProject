@@ -1,5 +1,5 @@
-import 'package:care_garden/models/planta.dart';
-import 'package:care_garden/utils/tipo_planta.dart';
+import 'package:caregarden_cmd/models/planta.dart';
+import 'package:caregarden_cmd/utils/tipo_planta.dart';
 
 class Briofitas extends Planta {
   Briofitas({
