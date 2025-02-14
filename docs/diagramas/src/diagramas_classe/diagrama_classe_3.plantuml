@@ -3,24 +3,24 @@ title Diagrama de Classe 3 - Controladores
 
 package controladores {
   interface Repositorio<T> {
-    +salvar(objeto: T)
+    +salvar(objeto: T): bool
     +obterTodos(): List<T>
     +obterPorId(id: int): T
-    +deletar(id: int)
+    +deletar(id: int): bool
   }
 
   class GerenciadorDePlantas << (S,#FF7700) Singleton >> {
     -plantas: List<Planta>
     +obterPlantas(): List<Planta>
-    +adicionarPlanta(planta: Planta)
-    +removerPlanta(id: int)
+    +adicionarPlanta(planta: Planta): bool
+    +removerPlanta(id: int): bool
   }
 
   class GerenciadorDeAgendamentos << (S,#FF7700) Singleton >> {
     -agendamentos: List<Agendamento>
     +obterAgendamentos(): List<Agendamento>
-    +adicionarAgendamento(agendamento: Agendamento)
-    +removerAgendamento(id: int)
+    +adicionarAgendamento(agendamento: Agendamento): bool
+    +removerAgendamento(id: int): bool
   }
 
   Repositorio <|-- GerenciadorDePlantas

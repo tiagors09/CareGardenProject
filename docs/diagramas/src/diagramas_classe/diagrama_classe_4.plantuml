@@ -1,29 +1,13 @@
-@startuml Diagrama_Classe_3
-title Diagrama de Classe 3 - Controladores
+@startuml Diagrama_Classe_4
+title Diagrama de Classe 4 - Visão
 
-package controladores {
-  interface Repositorio<T> {
-    +salvar(objeto: T)
-    +obterTodos(): List<T>
-    +obterPorId(id: int): T
-    +deletar(id: int)
+package visao {
+  class Visao<T> {
+    -objetos: List<T>
+    +exibir(id: int): String
+    +listar(): String
+    +atualizar(id: int): String
+    +excluir(id: int): String
   }
-
-  class GerenciadorDePlantas << (S,#FF7700) Singleton >> {
-    -plantas: List<Planta>
-    +obterPlantas(): List<Planta>
-    +adicionarPlanta(planta: Planta)
-    +removerPlanta(id: int)
-  }
-
-  class GerenciadorDeAgendamentos << (S,#FF7700) Singleton >> {
-    -agendamentos: List<Agendamento>
-    +obterAgendamentos(): List<Agendamento>
-    +adicionarAgendamento(agendamento: Agendamento)
-    +removerAgendamento(id: int)
-  }
-
-  Repositorio <|-- GerenciadorDePlantas
-  Repositorio <|-- GerenciadorDeAgendamentos
 }
 @enduml

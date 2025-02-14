@@ -12,5 +12,24 @@ package utils {
     gimnosperma
     angiosperma
   }
+
+  interface Iterador<T> {
+    temProximo(): bool
+    proximo(): T
+    atual(): T
+  }
+
+  class MenuPlanta {
+    -plantas: List<Planta>
+    -posicao: int
+  }
+
+  class MenuAgendamentos {
+    -plantas: List<Planta>
+    -posicao: int
+  }
+
+  Iterador <|.. MenuPlanta
+  Iterador <|.. MenuAgendamentos
 }
 @enduml
