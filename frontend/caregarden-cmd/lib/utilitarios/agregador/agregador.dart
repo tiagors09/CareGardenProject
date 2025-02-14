@@ -1,3 +1,4 @@
-abstract class Agregador<T> {
+abstract class Agregador<T, K> {
   T geraIterador();
+  adicionar(K objeto);
 }
