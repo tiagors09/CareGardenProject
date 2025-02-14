@@ -2,12 +2,12 @@ import 'package:care_garden/models/planta.dart';
 import 'package:flutter/material.dart';
 
 class PlantaListaItem extends StatelessWidget {
-  final Planta p;
+  final Planta planta;
   final void Function(BuildContext, Planta) funcaoEdicaoPlanta;
 
   const PlantaListaItem({
     super.key,
-    required this.p,
+    required this.planta,
     required this.funcaoEdicaoPlanta,
   });
 
@@ -16,10 +16,10 @@ class PlantaListaItem extends StatelessWidget {
     return Card(
       child: ListTile(
         trailing: IconButton(
-          onPressed: () => funcaoEdicaoPlanta(context, p),
+          onPressed: () => funcaoEdicaoPlanta(context, planta),
           icon: Icon(Icons.edit),
         ),
-        title: Text(p.nome),
+        title: Text(planta.nome),
       ),
     );
   }

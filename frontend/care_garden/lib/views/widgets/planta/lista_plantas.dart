@@ -22,7 +22,7 @@ class ListaPlantas extends StatelessWidget {
               itemCount: plantas.length,
               itemBuilder: (ctx, i) {
                 return PlantaListaItem(
-                  p: plantas[i],
+                  planta: plantas[i],
                   funcaoEdicaoPlanta: controlador.editarPlanta,
                 );
               },

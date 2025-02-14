@@ -1,6 +1,7 @@
 import 'package:care_garden/controllers/agendamento_formulario_controlador.dart';
 import 'package:care_garden/controllers/planta_formulario_controlador.dart';
 import 'package:care_garden/providers/planta/planta_provider.dart';
+import 'package:care_garden/utils/preferencias.dart';
 import 'package:care_garden/utils/rotas.dart';
 import 'package:care_garden/views/screens/agendamento_formulario.dart';
 import 'package:care_garden/views/screens/home.dart';
@@ -25,6 +26,7 @@ class App extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        themeMode: Preferencias.obterInstancia().obterTema(),
         debugShowCheckedModeBanner: false,
         title: 'CareGarden',
         routes: {
