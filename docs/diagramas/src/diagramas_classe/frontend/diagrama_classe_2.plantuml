@@ -6,6 +6,10 @@ package utils {
     +fabricarPlanta(nome: String, dataAquisicao: DateTime, tipoPlanta: TipoPlanta, agendamentos: List<Agendamento>)
   }
 
+  abstract class FabricaDeAgendamento {
+    +fabricarPlanta(id: int, planta: Planta, data: DateTime, evento: Evento)
+  }
+
   enum TipoPlanta {
     briofita
     pteridofita
