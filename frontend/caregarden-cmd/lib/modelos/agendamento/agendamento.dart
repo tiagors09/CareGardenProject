@@ -1,5 +1,5 @@
-import 'package:caregarden_cmd/models/planta/planta.dart';
-import 'package:caregarden_cmd/utils/fabrica_de_planta.dart';
+import 'package:caregarden_cmd/modelos/planta/planta.dart';
+import 'package:caregarden_cmd/utilitarios/fabrica_de_planta.dart';
 
 class Agendamento {
   final int? id;

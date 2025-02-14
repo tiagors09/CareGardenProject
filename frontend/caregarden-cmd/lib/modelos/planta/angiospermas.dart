@@ -1,23 +1,23 @@
-import 'package:caregarden_cmd/models/agendamento/agendamento.dart';
-import 'package:caregarden_cmd/models/planta/planta.dart';
-import 'package:caregarden_cmd/utils/grupo_planta.dart';
+import 'package:caregarden_cmd/modelos/agendamento/agendamento.dart';
+import 'package:caregarden_cmd/modelos/planta/planta.dart';
+import 'package:caregarden_cmd/utilitarios/grupo_planta.dart';
 
-class Gimnospermas extends Planta {
-  Gimnospermas({
+class Angiospermas extends Planta {
+  Angiospermas({
     super.id,
     required super.nome,
     required super.dataDeAquisicao,
-    super.grupo = GrupoPlanta.gimnosperma,
+    super.grupo = GrupoPlanta.angiosperma,
     super.agendamentos,
   });
 
   @override
   String caracteristicas() {
-    return "$nome é uma ${grupo.nome} faz fotossíntese e produz sementes nuas.";
+    return "$nome é uma ${grupo.nome} faz fotossíntese e produz flores e frutos.";
   }
 
-  factory Gimnospermas.fromJson(Map<String, dynamic> json) {
-    return Gimnospermas(
+  factory Angiospermas.fromJson(Map<String, dynamic> json) {
+    return Angiospermas(
       id: json['id'],
       nome: json['nome'],
       dataDeAquisicao: DateTime.parse(json['dataDeAquisicao']),

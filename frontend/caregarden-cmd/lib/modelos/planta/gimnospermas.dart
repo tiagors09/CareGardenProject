@@ -1,23 +1,23 @@
-import 'package:caregarden_cmd/models/agendamento/agendamento.dart';
-import 'package:caregarden_cmd/models/planta/planta.dart';
-import 'package:caregarden_cmd/utils/grupo_planta.dart';
+import 'package:caregarden_cmd/modelos/agendamento/agendamento.dart';
+import 'package:caregarden_cmd/modelos/planta/planta.dart';
+import 'package:caregarden_cmd/utilitarios/grupo_planta.dart';
 
-class Briofitas extends Planta {
-  Briofitas({
+class Gimnospermas extends Planta {
+  Gimnospermas({
     super.id,
     required super.nome,
     required super.dataDeAquisicao,
-    super.grupo = GrupoPlanta.briofita,
+    super.grupo = GrupoPlanta.gimnosperma,
     super.agendamentos,
   });
 
   @override
   String caracteristicas() {
-    return "$nome é uma ${grupo.nome} faz fotossíntese sem vasos condutores.";
+    return "$nome é uma ${grupo.nome} faz fotossíntese e produz sementes nuas.";
   }
 
-  factory Briofitas.fromJson(Map<String, dynamic> json) {
-    return Briofitas(
+  factory Gimnospermas.fromJson(Map<String, dynamic> json) {
+    return Gimnospermas(
       id: json['id'],
       nome: json['nome'],
       dataDeAquisicao: DateTime.parse(json['dataDeAquisicao']),

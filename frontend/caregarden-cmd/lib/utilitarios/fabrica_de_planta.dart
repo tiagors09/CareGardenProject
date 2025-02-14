@@ -1,9 +1,9 @@
-import 'package:caregarden_cmd/models/planta/angiospermas.dart';
-import 'package:caregarden_cmd/models/planta/briofitas.dart';
-import 'package:caregarden_cmd/models/planta/gimnospermas.dart';
-import 'package:caregarden_cmd/models/planta/planta.dart';
-import 'package:caregarden_cmd/models/planta/pteridofitas.dart';
-import 'package:caregarden_cmd/utils/grupo_planta.dart';
+import 'package:caregarden_cmd/modelos/planta/angiospermas.dart';
+import 'package:caregarden_cmd/modelos/planta/briofitas.dart';
+import 'package:caregarden_cmd/modelos/planta/gimnospermas.dart';
+import 'package:caregarden_cmd/modelos/planta/planta.dart';
+import 'package:caregarden_cmd/modelos/planta/pteridofitas.dart';
+import 'package:caregarden_cmd/utilitarios/grupo_planta.dart';
 
 abstract class FabricaDePlanta {
   static Planta fabricarPlanta(
