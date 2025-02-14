@@ -1,0 +1,40 @@
+@startuml Diagrama_Classe_1
+title Diagrama de Classe 1 - Modelos
+
+package modelos {
+  
+  class Agendamento {
+    +id: int
+    +planta: Planta
+    +data: DateTime
+    +Agendamento(id: int, planta: Planta, data: DateTime)
+    +Agendamento.fromJson(json: Map<String, dynamic>)
+    +toJson(): Map<String, dynamic>
+  }
+
+  abstract class Planta {
+    +id: int
+    +nome: String
+    +dataAquisicao: DateTime
+    +tipo: TipoPlanta
+    +agendamentos: List<Agendamento>
+    +Planta(id: int, nome: String, dataAquisicao: DateTime, tipo: TipoPlanta, agendamentos: List<Agendamento>)
+    +Planta.fromJson(json: Map<String, dynamic>)
+    +caracteristicas(): String
+    +toJson(): Map<String, dynamic>
+  }
+  
+  class Briofita
+  class Pteridofita
+  class Angiosperma
+  class Gimnosperma
+}
+
+Planta <|-- Briofita
+Planta <|-- Pteridofita
+Planta <|-- Angiosperma
+Planta <|-- Gimnosperma
+
+Planta "1" o-- "many" Agendamento : possui
+
+@enduml

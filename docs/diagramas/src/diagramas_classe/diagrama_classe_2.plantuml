@@ -1,0 +1,16 @@
+@startuml Diagrama_Classe_2
+title Diagrama de Classe 2 - Utilitários
+
+package utils {
+  abstract class FabricaDePlanta {
+    +fabricarPlanta(nome: String, dataAquisicao: DateTime, tipoPlanta: TipoPlanta, agendamentos: List<Agendamento>)
+  }
+
+  enum TipoPlanta {
+    briofita
+    pteridofita
+    gimnosperma
+    angiosperma
+  }
+}
+@enduml
