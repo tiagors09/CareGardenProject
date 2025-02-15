@@ -1,4 +1,3 @@
-import 'package:caregarden_cmd/modelos/agendamento/agendamento.dart';
 import 'package:caregarden_cmd/utilitarios/agregador/agregador.dart';
 import 'package:caregarden_cmd/utilitarios/enums/evento.dart';
 import 'package:caregarden_cmd/utilitarios/iterador/agendamento_iterador.dart';

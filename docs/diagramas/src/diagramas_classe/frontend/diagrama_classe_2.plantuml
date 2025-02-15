@@ -1,61 +1,75 @@
 @startuml Diagrama_Classe_2
 title Front-End Diagrama de Classe 2 - Utilitários
 
+left to right direction
+
 package utils {
-  abstract class FabricaDePlanta {
-    +fabricarPlanta(nome: String, dataAquisicao: DateTime, tipoPlanta: TipoPlanta, agendamentos: List<Agendamento>)
+  package fabricas {
+    abstract class FabricaDePlanta {
+      +fabricarPlanta(id: int, nome: String, dataAquisicao: DateTime, tipoPlanta: TipoPlanta, agendamentos: List<int>)
+    }
+
+    abstract class FabricaDeAgendamento {
+      +fabricarPlanta(id: int, planta: int, data: DateTime, evento: Evento)
+    }
   }
 
-  abstract class FabricaDeAgendamento {
-    +fabricarPlanta(id: int, planta: Planta, data: DateTime, evento: Evento)
+  package enumeradores {
+    enum GrupoPlanta {
+      briofita
+      pteridofita
+      gimnosperma
+      angiosperma
+    }
+
+    enum Evento {
+      regamento
+      podamento
+      adubacao
+      trocaVaso
+    }
   }
 
-  enum TipoPlanta {
-    briofita
-    pteridofita
-    gimnosperma
-    angiosperma
+  package iteradores {
+    interface Iterador<T> {
+      +temProximo(): bool
+      +proximo(): T
+      +atual(): T
+    }
+
+    class PlantaIterador {
+      -plantas: List<Plantas>
+      -indiceAtual: int
+      PlantaIterador(plantas: List<Plantas>)
+    }
+
+    class AgendamentoIterador {
+      -agendamentos: List<Agendamento>
+      -indiceAtual: int
+      AgendamentoIterador(agendamentos: List<Agendamento>)
+    }
   }
 
-  enum Evento {
-    regamento
-    podamento
-    adubacao
-    trocaVaso
-  }
+  package agrefadores {
+    interface Agregador<T> {
+      +geraIterador(): T
+    }
 
-  interface Iterador<T> {
-    temProximo(): bool
-    proximo(): T
-    atual(): T
-  }
+    class Plantas {
+      -plantas: List<Plantas>
+      -indiceAtual: int
+      -plantaIterador: PlantaIterador
+      +adicionaPlanta(id: int, nome: String, dataAquisicao: DateTime, tipoPlanta: TipoPlanta, agendamentos: List<int>)
+      +removeAgendamento(id: int)
+    }
 
-  class PlantaIterador {
-    -plantas: List<Plantas>
-    -indiceAtual: int
-    PlantaIterador(plantas: List<Plantas>)
-  }
-
-  class AgendamentoIterador {
-    -agendamentos: List<Agendamento>
-    -indiceAtual: int
-    AgendamentoIterador(agendamentos: List<Agendamento>)
-  }
-
-  interface Agregador<T> {
-    +geraIterador(): T
-  }
-
-  class Plantas {
-    -plantas: List<Plantas>
-    -indiceAtual: int
-    -plantaIterador: PlantaIterador
-  }
-
-  class Agendamentos {
-    -agendamentos: List<Plantas>
-    -indiceAtual: int
-    -agendamentosIterador: AgendamentoIterador
+    class Agendamentos {
+      -agendamentos: List<Plantas>
+      -indiceAtual: int
+      -agendamentosIterador: AgendamentoIterador
+      +adicionaAgendamento(id: int, planta: int, data: DateTime, evento: Evento)
+      +removeAgendamento(id: int)
+    }
   }
 
   Iterador <|.. PlantaIterador

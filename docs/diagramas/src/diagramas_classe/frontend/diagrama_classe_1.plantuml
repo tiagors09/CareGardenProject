@@ -1,40 +1,86 @@
 @startuml Diagrama_Classe_1
 title Front-End Diagrama de Classe 1 - Modelos
 
+left to right direction
+
 package modelos {
   
-  class Agendamento {
-    +id: int
-    +planta: Planta
-    +data: DateTime
-    +evento: Evento
-    +Agendamento(id: int, planta: Planta, data: DateTime, evento: Evento)
-    +Agendamento.fromJson(json: Map<String, dynamic>)
-    +toJson(): Map<String, dynamic>
+  package agendamento {
+    class Agendamento {
+      +id: int
+      +planta: Planta
+      +data: DateTime
+      +evento: Evento
+      +Agendamento(id: int, planta: Planta, data: DateTime, evento: Evento)
+      +toString(): String
+      +toJson(): Map<String, dynamic>
+    }
+
+    class Podamento {
+      +Podamento(id: int, planta: Planta, data: DateTime, evento: Evento.podamento)
+      +Podamento.fromJson(json: Map<String, dynamic>)
+    }
+
+    class Regamento {
+      +Regamento(id: int, planta: Planta, data: DateTime, evento: Evento.regamento)
+      +Regamento.fromJson(json: Map<String, dynamic>)
+    }
+
+    class Replantio {
+      +Replantio(id: int, planta: Planta, data: DateTime, evento: Evento.replantio)
+      +Replantio.fromJson(json: Map<String, dynamic>)
+    }
+
+    class TrocaDeVaso {
+      +TrocaDeVaso(id: int, planta: Planta, data: DateTime, evento: Evento.trocaVaso)
+      +TrocaDeVaso.fromJson(json: Map<String, dynamic>)
+    }
   }
 
-  abstract class Planta {
-    +id: int
-    +nome: String
-    +dataAquisicao: DateTime
-    +tipo: TipoPlanta
-    +agendamentos: List<Agendamento>
-    +Planta(id: int, nome: String, dataAquisicao: DateTime, tipo: TipoPlanta, agendamentos: List<Agendamento>)
-    +Planta.fromJson(json: Map<String, dynamic>)
-    +caracteristicas(): String
-    +toJson(): Map<String, dynamic>
+  package planta {
+    abstract class Planta {
+      +id: int
+      +nome: String
+      +dataAquisicao: DateTime
+      +grupo: GrupoPlanta
+      +agendamentos: List<int>
+      +Planta(id: int, nome: String, dataAquisicao: DateTime, grupo: GrupoPlanta, agendamentos: List<int>)
+      +caracteristicas(): String
+      +toString(): String
+      +toJson(): Map<String, dynamic>
+    }
+    
+    class Briofita {
+      +Briofita(id: int, nome: String, dataAquisicao: DateTime, grupo: GrupoPlanta.briofita, agendamentos: List<int>)
+      +Briofita.fromJson(json: Map<String, dynamic>)
+    }
+
+    class Pteridofita {
+      +Pteridofita(id: int, nome: String, dataAquisicao: DateTime, grupo: GrupoPlanta.pteridofita, agendamentos: List<int>)
+      +Pteridofita.fromJson(json: Map<String, dynamic>)
+    }
+
+    class Angiosperma {
+      +Angiosperma(id: int, nome: String, dataAquisicao: DateTime, grupo: GrupoPlanta.angiosperma, agendamentos: List<int>)
+      +Angiosperma.fromJson(json: Map<String, dynamic>)
+    }
+
+    class Gimnosperma {
+      +Gimnosperma(id: int, nome: String, dataAquisicao: DateTime, grupo: GrupoPlanta.gimnosperma, agendamentos: List<int>)
+      +Gimnosperma.fromJson(json: Map<String, dynamic>)
+    }
   }
-  
-  class Briofita
-  class Pteridofita
-  class Angiosperma
-  class Gimnosperma
 }
 
 Planta <|-- Briofita
 Planta <|-- Pteridofita
 Planta <|-- Angiosperma
 Planta <|-- Gimnosperma
+
+Agendamento <|-- Podamento
+Agendamento <|-- Regamento
+Agendamento <|-- Replantio
+Agendamento <|-- TrocaDeVaso
 
 Planta "1" o-- "many" Agendamento : possui
 
