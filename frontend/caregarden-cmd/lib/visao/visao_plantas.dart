@@ -93,7 +93,11 @@ class VisaoPlantas extends Visao {
 
   @override
   void listar() {
-    repositorio.obterTodos().forEach((planta) => print(planta.toString()));
+    repositorio.obterTodos().forEach(
+          (planta) => print(
+            (planta as Planta).caracteristicas(),
+          ),
+        );
   }
 
   @override

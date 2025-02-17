@@ -44,6 +44,7 @@ class VisaoMenu {
     print('2 - Atualizar planta');
     print('3 - Ler planta');
     print('4 - Remover planta');
+    print('5 - Listar plantas');
 
     final opcao = stdin.readLineSync();
     final opcaoConvertida = int.tryParse(opcao ?? '');
@@ -66,6 +67,34 @@ class VisaoMenu {
           } else {
             visaoPlantas.atualizar(plantaIdConvertida);
           }
+          break;
+        case 3:
+          print('Digite um ID de uma planta para ler ');
+          final plantaId = stdin.readLineSync();
+          final plantaIdConvertida = int.tryParse(plantaId ?? '');
+
+          if (plantaIdConvertida.toString().trim().isEmpty ||
+              plantaIdConvertida == null) {
+            print('Digite uma entrada válida!');
+          } else {
+            visaoPlantas.exibir(plantaIdConvertida);
+          }
+          break;
+        case 4:
+          print('Digite um ID de uma planta para remover ');
+          final plantaId = stdin.readLineSync();
+          final plantaIdConvertida = int.tryParse(plantaId ?? '');
+
+          if (plantaIdConvertida.toString().trim().isEmpty ||
+              plantaIdConvertida == null) {
+            print('Digite uma entrada válida!');
+          } else {
+            visaoPlantas.excluir(plantaIdConvertida);
+          }
+          break;
+        case 5:
+          print('LISTA DE PLANTAS');
+          visaoPlantas.listar();
           break;
         default:
           print('Digite uma entrada válida!');
