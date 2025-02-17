@@ -22,12 +22,13 @@ class VisaoPlantas extends Visao {
 
   @override
   void exibir(int id) {
-    // TODO: implement exibir
+    final planta = repositorio.obterPorId(id);
+    print(planta.toString());
   }
 
   @override
   void listar() {
-    // TODO: implement listar
+    repositorio.obterTodos().forEach((planta) => print(planta.toString()));
   }
 
   @override
@@ -80,7 +81,7 @@ class VisaoPlantas extends Visao {
 
     final resultado = repositorio.salvar(
       FabricaDePlanta.fabricarPlanta(
-        Random().nextInt(100),
+        null,
         nome,
         dataDeAquisicao,
         grupo!,

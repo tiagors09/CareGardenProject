@@ -12,7 +12,7 @@ class Gimnospermas extends Planta {
 
   @override
   String caracteristicas() {
-    return "$nome é uma ${grupo.nome} faz fotossíntese e produz sementes nuas.";
+    return '$id | $nome é uma ${grupo.nome} faz fotossíntese e produz sementes nuas.';
   }
 
   factory Gimnospermas.fromJson(Map<String, dynamic> json) {

@@ -12,7 +12,7 @@ class Pteridofitas extends Planta {
 
   @override
   String caracteristicas() {
-    return "$nome é uma ${grupo.nome} faz fotossíntese e se reproduz por esporos.";
+    return '$id | $nome é uma ${grupo.nome} faz fotossíntese e se reproduz por esporos.';
   }
 
   factory Pteridofitas.fromJson(Map<String, dynamic> json) {

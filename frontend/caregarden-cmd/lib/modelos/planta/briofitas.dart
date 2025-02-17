@@ -12,7 +12,7 @@ class Briofitas extends Planta {
 
   @override
   String caracteristicas() {
-    return "$nome é uma ${grupo.nome} faz fotossíntese sem vasos condutores.";
+    return '$id | $nome é uma ${grupo.nome} faz fotossíntese sem vasos condutores.';
   }
 
   factory Briofitas.fromJson(Map<String, dynamic> json) {

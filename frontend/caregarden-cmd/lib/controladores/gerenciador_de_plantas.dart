@@ -1,36 +1,30 @@
 import 'package:caregarden_cmd/controladores/repositorio.dart';
 import 'package:caregarden_cmd/modelos/planta/planta.dart';
-import 'package:caregarden_cmd/utilitarios/agregador/agregador.dart';
-import 'package:caregarden_cmd/utilitarios/agregador/plantas.dart';
 
 class GerenciadorDePlantas implements Repositorio<Planta> {
-  final Agregador agregador;
-
-  GerenciadorDePlantas({
-    required this.agregador,
-  });
+  final _plantas = <Planta>[];
+  final _baseUrl = 'http://localhost:8080';
 
   @override
   bool deletar(int id) {
-    // TODO: implement deletar
-    throw UnimplementedError();
+    _plantas.removeWhere((planta) => planta.id == id);
+    return true;
   }
 
   @override
   Planta obterPorId(int id) {
-    // TODO: implement obterPorId
-    throw UnimplementedError();
+    final planta = _plantas.firstWhere((planta) => planta.id == id);
+    return planta;
   }
 
   @override
   List<Planta> obterTodos() {
-    // TODO: implement obterTodos
-    throw UnimplementedError();
+    return _plantas;
   }
 
   @override
   bool salvar(Planta objeto) {
-    (agregador as Plantas).adicionar(objeto);
+    _plantas.add(objeto);
     return true;
   }
 }

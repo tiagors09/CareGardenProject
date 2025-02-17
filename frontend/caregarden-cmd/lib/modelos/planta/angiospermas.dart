@@ -12,7 +12,7 @@ class Angiospermas extends Planta {
 
   @override
   String caracteristicas() {
-    return "$nome é uma ${grupo.nome} faz fotossíntese e produz flores e frutos.";
+    return '$id | $nome é uma ${grupo.nome} faz fotossíntese e produz flores e frutos.';
   }
 
   factory Angiospermas.fromJson(Map<String, dynamic> json) {
