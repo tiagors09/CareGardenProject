@@ -6,6 +6,15 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class GerenciadorDePlantas implements Repositorio<Planta> {
+  static final GerenciadorDePlantas _instancia =
+      GerenciadorDePlantas._interno();
+
+  factory GerenciadorDePlantas() {
+    return _instancia;
+  }
+
+  GerenciadorDePlantas._interno();
+
   final _baseUrl = 'http://localhost:8080/plantas';
 
   @override
@@ -123,5 +132,27 @@ class GerenciadorDePlantas implements Repositorio<Planta> {
       return false;
     });
     return false;
+  }
+
+  List<Planta> obterPlantasDeOutraFonte(String url) {
+    http.get(Uri.parse(url)).then((resposta) {
+      if (resposta.statusCode == 200) {
+        List<dynamic> dados = jsonDecode(resposta.body);
+        return dados.map((e) {
+          final grupo = GrupoPlanta.values.firstWhere(
+            (g) => g.nome == e['grupo'],
+            orElse: () => GrupoPlanta.angiosperma,
+          );
+          return FabricaDePlanta.fabricarPlanta(e['id'], e['nome'], grupo);
+        }).toList();
+      } else {
+        print('Erro ao obter plantas de outra fonte: \${resposta.body}');
+        return [];
+      }
+    }).onError((error, stackTrace) {
+      print('Erro ao obter plantas de outra fonte: \$error');
+      return [];
+    });
+    return [];
   }
 }
