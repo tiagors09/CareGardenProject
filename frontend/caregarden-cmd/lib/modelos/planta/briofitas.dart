@@ -5,9 +5,7 @@ class Briofitas extends Planta {
   Briofitas({
     super.id,
     required super.nome,
-    required super.dataDeAquisicao,
     super.grupo = GrupoPlanta.briofita,
-    super.agendamentos,
   });
 
   @override
@@ -19,9 +17,7 @@ class Briofitas extends Planta {
     return Briofitas(
       id: json['id'],
       nome: json['nome'],
-      dataDeAquisicao: DateTime.parse(json['dataDeAquisicao']),
       grupo: GrupoPlanta.values.byName(json['grupo']),
-      agendamentos: json['agenfamentos'] ?? [],
     );
   }
 }

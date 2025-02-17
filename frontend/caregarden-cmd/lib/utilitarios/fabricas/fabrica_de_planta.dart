@@ -9,7 +9,6 @@ abstract class FabricaDePlanta {
   static Planta fabricarPlanta(
     int? id,
     String nome,
-    DateTime dataDeAquisicao,
     GrupoPlanta grupo,
   ) {
     late Planta p;
@@ -18,28 +17,24 @@ abstract class FabricaDePlanta {
         p = Angiospermas(
           id: id,
           nome: nome,
-          dataDeAquisicao: dataDeAquisicao,
         );
         break;
       case GrupoPlanta.briofita:
         p = Briofitas(
           id: id,
           nome: nome,
-          dataDeAquisicao: dataDeAquisicao,
         );
         break;
       case GrupoPlanta.gimnosperma:
         p = Gimnospermas(
           id: id,
           nome: nome,
-          dataDeAquisicao: dataDeAquisicao,
         );
         break;
       case GrupoPlanta.pteridofita:
         p = Pteridofitas(
           id: id,
           nome: nome,
-          dataDeAquisicao: dataDeAquisicao,
         );
         break;
     }

@@ -5,9 +5,7 @@ class Pteridofitas extends Planta {
   Pteridofitas({
     super.id,
     required super.nome,
-    required super.dataDeAquisicao,
     super.grupo = GrupoPlanta.pteridofita,
-    super.agendamentos,
   });
 
   @override
@@ -19,9 +17,7 @@ class Pteridofitas extends Planta {
     return Pteridofitas(
       id: json['id'],
       nome: json['nome'],
-      dataDeAquisicao: DateTime.parse(json['dataDeAquisicao']),
       grupo: GrupoPlanta.values.byName(json['grupo']),
-      agendamentos: json['agenfamentos'] ?? [],
     );
   }
 }

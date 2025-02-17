@@ -65,7 +65,6 @@ class VisaoPlantas extends Visao {
       FabricaDePlanta.fabricarPlanta(
         planta.id,
         nome,
-        dataDeAquisicao,
         grupo!,
       ),
     );
@@ -152,7 +151,6 @@ class VisaoPlantas extends Visao {
       FabricaDePlanta.fabricarPlanta(
         null,
         nome,
-        dataDeAquisicao,
         grupo!,
       ),
     );

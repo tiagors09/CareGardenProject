@@ -5,9 +5,7 @@ class Angiospermas extends Planta {
   Angiospermas({
     super.id,
     required super.nome,
-    required super.dataDeAquisicao,
     super.grupo = GrupoPlanta.angiosperma,
-    super.agendamentos,
   });
 
   @override
@@ -19,9 +17,7 @@ class Angiospermas extends Planta {
     return Angiospermas(
       id: json['id'],
       nome: json['nome'],
-      dataDeAquisicao: DateTime.parse(json['dataDeAquisicao']),
       grupo: GrupoPlanta.values.byName(json['grupo']),
-      agendamentos: json['agendamentos'] ?? [],
     );
   }
 }

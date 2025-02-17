@@ -1,6 +1,6 @@
 package br.com.tiagors09.caregarden.models;
 
-import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +23,5 @@ public class Planta {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String nome;
-  private Date dataDeAquisicao;
-  private String tipoPlanta;
+  private String grupo;
 }

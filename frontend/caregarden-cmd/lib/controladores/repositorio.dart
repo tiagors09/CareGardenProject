@@ -3,4 +3,5 @@ abstract class Repositorio<T> {
   List<T> obterTodos();
   T obterPorId(int id);
   bool deletar(int id);
+  bool atualizar(T objeto);
 }

@@ -1,10 +1,8 @@
 package br.com.tiagors09.caregarden.controllers;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,13 +33,11 @@ public class PlantasController {
   @PostMapping
   public ResponseEntity<Planta> adicionarPlanta(
       @RequestParam("nome") String nome,
-      @RequestParam("dataDeAquisicao") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dataDeAquisicao,
-      @RequestParam("tipoPlanta") String tipoPlanta) {
+      @RequestParam("grupo") String grupo) {
 
     Planta planta = new Planta();
     planta.setNome(nome);
-    planta.setDataDeAquisicao(dataDeAquisicao);
-    planta.setTipoPlanta(tipoPlanta);
+    planta.setGrupo(grupo);
 
     Planta plantaSalva = repository.save(planta);
     return ResponseEntity.ok(plantaSalva);
@@ -51,20 +47,16 @@ public class PlantasController {
   @PutMapping("/{id}")
   public ResponseEntity<Planta> atualizarPlanta(@PathVariable Long id,
       @RequestParam(required = false) String nome,
-      @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dataDeAquisicao,
-      @RequestParam(required = false) String tipoPlanta) {
+      @RequestParam(required = false) String grupo) {
 
     return repository.findById(id)
         .map(planta -> {
           if (nome != null) {
             planta.setNome(nome);
           }
-          if (dataDeAquisicao != null) {
-            planta.setDataDeAquisicao(dataDeAquisicao);
-          }
 
-          if (tipoPlanta != null) {
-            planta.setTipoPlanta(tipoPlanta);
+          if (grupo != null) {
+            planta.setGrupo(grupo);
           }
 
           Planta plantaAtualizada = repository.save(planta);
