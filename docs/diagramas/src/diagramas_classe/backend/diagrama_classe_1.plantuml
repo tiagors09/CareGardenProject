@@ -1,4 +1,71 @@
 @startuml Diagrama_Classe_1
 title Back-End Diagrama de Classe 1 - Modelos
 
+left to right direction
+
+package models {
+  class Planta {
+    - id: Long
+    - nome: String
+    - grupo: String
+    
+    + Planta()
+    + Planta(id: Long, nome: String, grupo: String)
+    
+    + getId(): Long
+    + setId(id: Long): void
+    
+    + getNome(): String
+    + setNome(nome: String): void
+    
+    + getGrupo(): String
+    + setGrupo(grupo: String): void
+    
+    + toString(): String
+    + equals(other: Object): boolean
+    + hashCode(): int
+  }
+
+  class Agendamento {
+    - id: Long
+    - idPlanta: Long
+    - data: Date
+    
+    + Agendamento()
+    + Agendamento(id: Long, idPlanta: Long, data: Date)
+    
+    + getId(): Long
+    + setId(id: Long): void
+    
+    + getIdPlanta(): Long
+    + setIdPlanta(idPlanta: Long): void
+    
+    + getData(): Date
+    + setData(data: Date): void
+    
+    + toString(): String
+    + equals(other: Object): boolean
+    + hashCode(): int
+  }
+}
+
+package controllers {
+  class PlantasController {
+    - repository: PlantaRepository
+    
+    + listarPlantas(): List<Planta>
+    + buscarPlanta(id: Long): ResponseEntity<Planta>
+    + adicionarPlanta(nome: String, grupo: String): ResponseEntity<Planta>
+    + atualizarPlanta(id: Long, nome: String, grupo: String): ResponseEntity<Planta>
+    + deletarPlanta(id: Long): ResponseEntity<?>
+  }
+
+  class PlantaRepository {
+    + findAll(): List<Planta>
+    + findById(id: Long): Optional<Planta>
+    + save(planta: Planta): Planta
+    + delete(planta: Planta): void
+  }
+}
+
 @enduml
